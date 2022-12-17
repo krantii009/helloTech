@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="" onsubmit="return fun1()">
+        <input type="text" placeholder="Enter Name" id="one"><br>
+        <small id="a"></small><br>
+        <input type="text" placeholder="Enter Email" id="two"><br>
+        <small id="b"></small><br>
+        <input type="text" id="three" placeholder="Enter Mobile"><br>
+        <small id="c"></small>
+        <button type="submit">Click</button>
+    </form>
+
+
+    <table border="1">
+        <thead>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Mobile number</th>
+        </thead>
+        <tbody id="k">
+           
+        
+        </tbody>
+    </table>
+    <script>
+        function fun1(){
+            var A = document.getElementById("one").value;
+            var B= document.getElementById("two").value;
+            var C= document.getElementById("three").value;
+            var D ="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/";
+
+
+            if(A == ""){
+                document.getElementById("a").innerHTML="Plz Enter NAme";
+                document.getElementById("a").style.color="red";
+                document.getElementById("one").style.border="2px solid red";
+                return false;
+            }
+           else if(A.length<5){
+            
+                document.getElementById("a").innerHTML="Plz Enter Valid NAme";
+                document.getElementById("a").style.color="red";
+                document.getElementById("one").style.border="2px solid red";
+                return false;
+            }
+            else if(B==""){
+                document.getElementById("b").innerHTML="Plz Enter Email";
+                document.getElementById("two").style.border="2px solid red";
+                document.getElementById("b").style.color="red";
+                return false;
+            }
+            else if(B==D){
+                document.getElementById("b").innerHTML="Plz Enter Valid Email";
+                document.getElementById("two").style.border="2px solid red";
+                document.getElementById("b").style.color="red";
+                return false;
+            }
+            else if(C==""){
+                document.getElementById("c").innerHTML="Plz Enter Number";
+                document.getElementById("three").style.border="2px solid red";
+                document.getElementById("c").style.color="red";
+                return false;
+            }
+            else if(isNaN(C)){
+                document.getElementById("c").innerHTML="Plz Enter Numaric Number";
+                document.getElementById("three").style.border="2px solid red";
+                document.getElementById("c").style.color="red";
+                return false;
+            }
+            else if(C.length!=10){
+                document.getElementById("c").innerHTML="Plz Enter Valid Number";
+                document.getElementById("three").style.border="2px solid red";
+                document.getElementById("c").style.color="red";
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        
+        charan =[
+            {"name":"charan",
+             "age":22,
+             "mobile":"637843228"
+        },
+        {"name":"hlelo",
+             "age":42,
+             "mobile":"637843228"
+        }
+        ];
+        charan.forEach((item)=>{
+           
+        document.getElementById("k").innerHTML +=`<tr><td>`+item['name']+`</td>
+                                                    <td>`+item['age']+`</td>
+                                                    <td>`+item['mobile']+`</td>
+                                                    </tr>`;
+                                                });
+       
+    </script>
+
+</body>
+</html>
